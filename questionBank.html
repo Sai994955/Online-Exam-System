@@ -1,0 +1,44 @@
+<template>
+    <lightning-card if:false={callResult}>
+        <div class="image">
+            <img src={LogoUrl} alt="centelon logo" />
+        </div>
+        <div class="mainbody">
+            <h3 class="title">
+                QUESTION BANK
+            </h3>
+            <div class="slds-p-around_small">
+                <div class="ques">
+                    <h1 slot="title"><b>{question}</b></h1>
+                    <p class="slds-p-horizontal_small"></p>
+                    <lightning-checkbox-group name="Options" options={checkboxOptions} value={checkboxOptionsValue}
+                        onchange={onChangecheckboxGroup}>
+                    </lightning-checkbox-group>
+                    <lightning-radio-group name="Options" options={radioGroupOptions} value={radioGroupOptionsValue}
+                        type="radio" onchange={onChangeRadioButtonGroup}>
+                    </lightning-radio-group>
+                    <lightning-textarea if:false={input} onchange={onChangeInput} value={inputValue}>
+                    </lightning-textarea>
+                </div>
+                <!-- Buttons Here-->
+                <div class="button">
+                    <lightning-layout horizontal-align="space">
+                        <lightning-layout-item padding="around-small">
+                            <lightning-button label="Next" variant="Brand" onclick={onButtonClick}
+                                disabled={disableNextButton}>
+                            </lightning-button>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small">
+                            <lightning-button label="Submit" variant="Brand" onclick={onButtonClick}
+                                disabled={disableSubmitButton}>
+                            </lightning-button>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+    <template if:true={callResult}>
+        <c-result result={score}></c-result>
+    </template>
+</template>

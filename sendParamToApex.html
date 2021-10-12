@@ -1,0 +1,18 @@
+<template>
+  <div class="wrapper fadeInDown login" if:false={callComponent}>
+    <div class="formContent">
+      <h2 class="active"> Sign In </h2>
+      
+        <lightning-input type="text" id="login" class="fadeIn second slds-align_absolute-center" name="usrName" placeholder="Enter username"
+          onchange={handleChange} style="width: 250px"></lightning-input>
+        <lightning-input type="password" id="password" class="fadeIn third slds-align_absolute-center" name="pswd" placeholder="Enter password"
+          onchange={handleChange} style="width: 250px"></lightning-input></br>
+        <lightning-button type="submit" class="fadeIn fourth" name="login" label="Log In" onclick={handleClick} style="padding-bottom: 30px;">
+        </lightning-button>
+      
+    </div>
+  </div>
+  <template if:true={callComponent}>
+    <c-question-bank user-name={UserName} set-number={setNo}></c-question-bank>
+  </template>
+</template>
